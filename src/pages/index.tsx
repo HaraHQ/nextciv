@@ -186,7 +186,7 @@ const Game = () => {
           return x;
         }));
         setXYStep([0,0]);
-        setAction('move');
+        setAction('');
         // check movement cell
         moveGM.map((gm: any[], gmi: number) => {
           // horizontal
@@ -253,15 +253,10 @@ const Game = () => {
         }
         setGameMap(moveGM);
         setXYStep(xy);
-        setAction('step');
+        setAction('move');
         break;
       case 'transport':
         // move from coordinate to coordinate
-        const transportGM = gameMap[from[0]][from[1]];
-        if (gameMap[to[0]][to[1]] === transportGM) {
-          alert('there same unit type at targetted location');
-          break;
-        }
         gameMap[to[0]][to[1]] = gameMap[from[0]][from[1]];
         gameMap[from[0]][from[1]] = land;
 
